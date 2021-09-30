@@ -1,0 +1,26 @@
+
+def stairCase(n,dp):
+    if dp[n]!=0:
+        return dp[n]
+    if n==0:
+        return 1
+    elif n==1:
+        return 1
+    else:
+        return stairCase(n-1,dp)+stairCase(n-2,dp)
+
+def stairCaseRec(n):
+    dp=[0 for i in range(n+1)]
+    dp.extend([1,1])
+    dp[n]=stairCase(n,dp)
+    print(dp[n])
+
+
+
+
+t=int(input())
+inputs=[]
+for _ in range(t):
+    inputs.append(int(input()))
+for i in inputs:
+    stairCaseRec(i)
